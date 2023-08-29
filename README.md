@@ -13,14 +13,14 @@ This repository contains the required procedure to deploy an application in Open
 - Install Red Hat Service Mesh, Kiali and Red Hat OpenShift distributed tracing platform operators
 
 ```$bash
-oc apply -f 00-service-mesh-operators.yaml
+oc apply -f 00-service-mesh-operators/00-service-mesh-operators.yaml
 oc get po -n openshift-operators -w
 ```
 
 - Deploy the Red Hat Service Mesh Control Plane - SMCP (*Please review the istiod, prometheus, grafana, jaeger and kiali pods are up and running*)
 
 ```$bash
-oc apply -f 01-service-mesh-control-plane.yaml
+oc apply -f 01-service-mesh-control-plane/01-service-mesh-control-plane.yaml
 oc get po -n istio-system -w
 oc get smcp -n istio-system
 ```
@@ -28,13 +28,13 @@ oc get smcp -n istio-system
 - Define the Red Hat Service Mesh Member Roll (SMMR)
 
 ```$bash
-oc apply -f 02-service-mesh-members-roll.yaml -n istio-system
+oc apply -f 02-service-mesh-members-roll/02-service-mesh-members-roll.yaml -n istio-system
 ```
 
 - Deploy the application
 
 ```$bash
-oc apply -f 03-jump-app-deploy.yaml
+oc apply -f 03-jump-app-deploy/03-jump-app-deploy.yaml
 ```
 
 NOTE: It is required the correct Openshift applications domain is defined in every object properly 
