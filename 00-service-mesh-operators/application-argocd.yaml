@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 00-service-mesh-operators
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: 00-service-mesh-operators
+    repoURL: 'https://github.com/pkstaz/red-hat-service-mesh-demo.git'
+    targetRevision: master
