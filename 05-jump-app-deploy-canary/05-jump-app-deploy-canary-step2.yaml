@@ -8,7 +8,7 @@ spec:
   - back-golang
   - mesh
   hosts:
-  - back-golang-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com
+  - back-golang-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com
   - back-golang
   http:
   - route:
@@ -73,7 +73,7 @@ spec:
   - front-javascript
   - mesh
   hosts:
-  - front-javascript-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com
+  - front-javascript-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com
   - front-javascript
   http:
   - route:
