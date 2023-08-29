@@ -8,6 +8,6 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: /
+    path: .
     repoURL: 'https://github.com/pkstaz/red-hat-service-mesh-demo.git'
     targetRevision: master
