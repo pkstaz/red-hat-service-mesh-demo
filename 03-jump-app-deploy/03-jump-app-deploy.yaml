@@ -317,7 +317,7 @@ spec:
           - name: APP_REF_NAME
             value: jump-app
           - name: REACT_APP_BACK
-            value: https://back-golang-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com/jump
+            value: https://back-golang-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com/jump
           - name: REACT_APP_GOLANG
             value: http://back-golang:8442
           - name: REACT_APP_PYTHON
@@ -361,7 +361,7 @@ spec:
           - name: APP_REF_NAME
             value: jump-app
           - name: REACT_APP_BACK
-            value: https://back-golang-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com/jump
+            value: https://back-golang-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com/jump
           - name: REACT_APP_GOLANG
             value: http://back-golang:8442
           - name: REACT_APP_PYTHON
@@ -445,7 +445,7 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-      - back-golang-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com
+      - back-golang-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com
 ---
 # Source: jump-app/charts/jump-app-micros/templates/istio/gateway.yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -461,7 +461,7 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-      - front-javascript-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com
+      - front-javascript-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com
 ---
 # Source: jump-app/charts/jump-app-micros/templates/istio/route.yaml
 apiVersion: route.openshift.io/v1
@@ -470,7 +470,7 @@ metadata:
   name: back-golang-istio-system
   namespace: istio-system
 spec:
-  host: back-golang-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com
+  host: back-golang-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com
   to:
     kind: Service
     name: istio-ingressgateway
@@ -487,7 +487,7 @@ metadata:
   name: front-javascript-istio-system
   namespace: istio-system
 spec:
-  host: front-javascript-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com
+  host: front-javascript-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com
   to:
     kind: Service
     name: istio-ingressgateway
@@ -507,7 +507,7 @@ spec:
   - back-golang
   - mesh
   hosts:
-  - back-golang-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com
+  - back-golang-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com
   - back-golang
   http:
   - route:
@@ -572,7 +572,7 @@ spec:
   - front-javascript
   - mesh
   hosts:
-  - front-javascript-istio-system.apps.cluster-dxv42.dxv42.sandbox1618.opentlc.com
+  - front-javascript-istio-system.apps.rosa.cestay-lab.7veh.p3.openshiftapps.com
   - front-javascript
   http:
   - route:
