@@ -53,7 +53,7 @@ oc -n istio-system get route kiali -o jsonpath='{.spec.host}'
 - Migrate from B deployment to G
 
 ```$bash
-oc apply -n jump-app -f 04-jump-app-deploy-blue-green.yaml
+oc apply -n jump-app -f 04-jump-app-deploy-blue-green/04-jump-app-deploy-blue-green.yaml
 ```
 
 ### Canary
@@ -61,25 +61,25 @@ oc apply -n jump-app -f 04-jump-app-deploy-blue-green.yaml
 - Steps 1 (90% A / 10% B)
 
 ```$bash
-oc apply -n jump-app -f 05-jump-app-deploy-canary-step1.yaml
+oc apply -n jump-app -f 05-jump-app-deploy-canary/05-jump-app-deploy-canary-step1.yaml
 ```
 
 - Step 2 (60% A / 40% B)
 
 ```$bash
-oc apply -n jump-app -f 05-jump-app-deploy-canary-step2.yaml
+oc apply -n jump-app -f 05-jump-app-deploy-canary/05-jump-app-deploy-canary-step2.yaml
 ```
 
 - Step 3 (20% A / 80% B)
 
 ```$bash
-oc apply -n jump-app -f 05-jump-app-deploy-canary-step3.yaml
+oc apply -n jump-app -f 05-jump-app-deploy-canary/05-jump-app-deploy-canary-step3.yaml
 ```
 
 - Step 3 (0% A / 100% B)
 
 ```$bash
-oc apply -n jump-app -f 05-jump-app-deploy-canary-step4.yaml
+oc apply -n jump-app -f 05-jump-app-deploy-canary/05-jump-app-deploy-canary-step4.yaml
 ```
 
 ### Mirror
@@ -87,7 +87,7 @@ oc apply -n jump-app -f 05-jump-app-deploy-canary-step4.yaml
 - Mirror 100% traffic between versions in Python microservice
 
 ```$bash
-oc apply -n jump-app -f 06-jump-app-deploy-mirror.yaml
+oc apply -n jump-app -f 06-jump-app-deploy-mirror/06-jump-app-deploy-mirror.yaml
 ```
 
 ## Chaos Monkey
@@ -97,14 +97,14 @@ oc apply -n jump-app -f 06-jump-app-deploy-mirror.yaml
 In this scenario, it is introduced a 3 seconds delay in every service Python request will be checked through the Kiali console.
 
 ```$bash
-oc apply -n jump-app -f 07-jump-app-chaos-delay.yaml
+oc apply -n jump-app -f 07-jump-app-chaos/07-jump-app-chaos-delay.yaml
 ```
 
 ### Abort
 In this scenario, a crash failure is introduced in the back-python service. The fault injection error could be visualized in Kiali (FI flag).
 
 ```$bash
-oc apply -n jump-app -f 07-jump-app-chaos-abort.yaml
+oc apply -n jump-app -f 07-jump-app-chaos/07-jump-app-chaos-abort.yaml
 ```
 ### Timeout
 
@@ -113,7 +113,7 @@ In this scenario, it is introduced a fault injection to generate delays in back-
 Once the configuration is applied, it is possible to check the current state of the connection requests between services through the Kiali console.
 
 ```$bash
-oc apply -n jump-app -f 08-jump-app-chaos-timeout.yaml
+oc apply -n jump-app -f 08-jump-app-chaos-timeout/08-jump-app-chaos-timeout.yaml
 ```
 
 ## Circuit Breaking & Outlier Detection
@@ -123,8 +123,8 @@ oc apply -n jump-app -f 08-jump-app-chaos-timeout.yaml
 In this scenario, it is introduced a circuit breaking rule in order to limit the impact of failures and latency spikes. The idea is to configure the Python service in order to limit to a single connection and request to it.
 
 ```$bash
-oc apply -n jump-app -f 09-jump-app-chaos-circuit-breaking-base.yaml
-oc apply -n jump-app -f 09-jump-app-chaos-circuit-breaking.yaml
+oc apply -n jump-app -f 09-jump-app-chaos-circuit-breaking/09-jump-app-chaos-circuit-breaking-base.yaml
+oc apply -n jump-app -f 09-jump-app-chaos-circuit-breaking/09-jump-app-chaos-circuit-breaking.yaml
 ```
 
 In Kiali, there is a 'ray' icon in the back-python application square that identify the presence of a CB definition.
