@@ -6,6 +6,7 @@ metadata:
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
+    namespace: jump-app
   project: default
   source:
     path: 07-jump-app-chaos
