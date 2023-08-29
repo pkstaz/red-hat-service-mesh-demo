@@ -8,6 +8,6 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: 01-service-mesh-control-plane.yaml
+    path: 01-service-mesh-control-plane
     repoURL: 'https://github.com/pkstaz/red-hat-service-mesh-demo.git'
     targetRevision: master
