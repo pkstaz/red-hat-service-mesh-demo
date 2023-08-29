@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 05-jump-app-deploy-canary
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: 05-jump-app-deploy-canary
+    repoURL: 'https://github.com/pkstaz/red-hat-service-mesh-demo.git'
+    targetRevision: master

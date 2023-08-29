@@ -3,5 +3,11 @@ kind: Kustomization
 resources:
 - 00-service-mesh-operators/application-argocd.yaml
 - 01-service-mesh-control-plane/application-argocd.yaml
-- 02-service-mesh-members-roll/02-service-mesh-members-roll.yaml
-- 03-jump-app-deploy/03-jump-app-deploy.yaml
+- 02-service-mesh-members-roll//application-argocd.yaml
+- 03-jump-app-deploy/application-argocd.yaml
+- 04-jump-app-deploy-blue-green/application-argocd.yaml
+- 05-jump-app-deploy-canary/application-argocd.yaml
+- 06-jump-app-deploy-mirror/application-argocd.yaml
+- 07-jump-app-chaos/application-argocd.yaml
+- 08-jump-app-chaos-timeout/application-argocd.yaml
+- 09-jump-app-chaos-circuit-breaking/application-argocd.yaml

@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- 05-jump-app-deploy-canary-step1.yaml
+- 05-jump-app-deploy-canary-step2.yaml
+- 05-jump-app-deploy-canary-step3.yaml
+- 05-jump-app-deploy-canary-step4.yaml

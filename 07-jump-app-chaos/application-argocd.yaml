@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 07-jump-app-chaos
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: 07-jump-app-chaos
+    repoURL: 'https://github.com/pkstaz/red-hat-service-mesh-demo.git'
+    targetRevision: master

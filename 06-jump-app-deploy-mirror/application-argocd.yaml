@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 06-jump-app-deploy-mirror
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: 06-jump-app-deploy-mirror
+    repoURL: 'https://github.com/pkstaz/red-hat-service-mesh-demo.git'
+    targetRevision: master

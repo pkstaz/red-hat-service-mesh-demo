@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 09-jump-app-chaos-circuit-breaking
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: 09-jump-app-chaos-circuit-breaking
+    repoURL: 'https://github.com/pkstaz/red-hat-service-mesh-demo.git'
+    targetRevision: master
