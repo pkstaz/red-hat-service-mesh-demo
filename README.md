@@ -20,7 +20,6 @@ oc get po -n openshift-operators -w
 - Deploy the Red Hat Service Mesh Control Plane - SMCP (*Please review the istiod, prometheus, grafana, jaeger and kiali pods are up and running*)
 
 ```$bash
-oc new-project istio-system
 oc apply -f 01-service-mesh-control-plane.yaml
 oc get po -n istio-system -w
 oc get smcp -n istio-system
@@ -29,7 +28,6 @@ oc get smcp -n istio-system
 - Define the Red Hat Service Mesh Member Roll (SMMR)
 
 ```$bash
-oc new-project jump-app
 oc apply -f 02-service-mesh-members-roll.yaml -n istio-system
 ```
 
@@ -44,8 +42,8 @@ NOTE: It is required the correct Openshift applications domain is defined in eve
 - Test the application via Browser and Kiali (_Please find the URL executing the following command_)
 
 ```$bash
-oc -n istio-system get route back-golang-istio-system -o jsonpath='{.spec.host}'
-oc -n istio-system get route front-javascript-istio-system -o jsonpath='{.spec.host}'
+oc -n istio-system get route back-golang-istio-system -o jsonpath='{.spec.host}' && \
+oc -n istio-system get route front-javascript-istio-system -o jsonpath='{.spec.host}' && \
 oc -n istio-system get route kiali -o jsonpath='{.spec.host}'
 ```
 
@@ -178,3 +176,7 @@ oc apply -n jump-app -f 09-jump-app-chaos-outlier-detection.yaml
 Asier Cidon @RedHat
 
 Fran Perea @RedHat
+
+## Edited by
+
+Carlos Estay @RedHat
